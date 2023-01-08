@@ -1,50 +1,51 @@
+import DashboardPageLayout from "../pages/dashboard/DashboardPageLayout";
 import HomePage from "../pages/home/HomePage";
 import { RouteType } from "./config";
-import DefaultPage from "../pages/filters/DefaultPage";
+import DashboardIndex from "../pages/dashboard/DashboardIndex";
 import ChangelogPage from "../pages/changelog/ChangelogPage";
-import AnalyticsPage from "../pages/filters/ScheduledOrdersPage";
-import SaasPage from "../pages/filters/UnsuccessOrdersPage";
+import AnalyticsPage from "../pages/dashboard/AnalyticsPage";
 import ComponentPageLayout from "../pages/component/ComponentPageLayout";
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import AlertPage from "../pages/component/AlertPage";
 import ButtonPage from "../pages/component/ButtonPage";
+import InstallationPage from "../pages/installation/InstallationPage";
 import DocumentationPage from "../pages/documentation/DocumentationPage";
-import ManagementPage from "../pages/installation/ManagementPage";
-import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
-import FilterPageLayout from "../pages/filters/FilterPageLayout";
-import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
-import FilterIndex from "../pages/filters/FilterIndex";
+import DefaultPage from "../pages/dashboard/DefaultPage";
+import SaasPage from "../pages/dashboard/SaasPage";
 
 const appRoutes: RouteType[] = [
+
   {
     index: true,
     element: <HomePage />,
     state: "home"
   },
   {
-    path: "/gerenciamento",
-    element: <ManagementPage />,
-    state: "gerenciamento",
+    path: "/installation",
+    element: <InstallationPage />,
+    state: "installation",
     sidebarProps: {
-      displayText: "Gerenciamento",
-      icon: <ManageAccountsOutlinedIcon />
+      displayText: "Installation",
+      icon: <FileDownloadOutlinedIcon />
     }
   },
   {
-    path: "/filtros",
-    element: <FilterPageLayout />,
-    state: "filter",
+    path: "/dashboard",
+    element: <DashboardPageLayout />,
+    state: "dashboard",
     sidebarProps: {
-      displayText: "Filtros",
-      icon: <FilterAltOutlinedIcon />
+      displayText: "Dashboard",
+      icon: <DashboardOutlinedIcon />
     },
     child: [
       {
         index: true,
-        element: <FilterIndex />,
-        state: "filter.index"
+        element: <DashboardIndex />,
+        state: "dashboard.index"
       },
       {
         path: "/dashboard/default",
