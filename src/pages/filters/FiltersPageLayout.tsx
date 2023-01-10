@@ -3,10 +3,10 @@ import { Outlet } from 'react-router-dom';
 
 type Props = {};
 
-const ComponentPageLayout = (props: Props) => {
+const FiltersPageLayout = (props: Props) => {
   return (
     <><Outlet /></>
   );
 };
 
-export default ComponentPageLayout;
+export default FiltersPageLayout;

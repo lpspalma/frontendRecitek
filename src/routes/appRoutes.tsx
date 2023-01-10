@@ -1,21 +1,18 @@
-import DashboardPageLayout from "../pages/dashboard/DashboardPageLayout";
 import HomePage from "../pages/home/HomePage";
 import { RouteType } from "./config";
-import DashboardIndex from "../pages/dashboard/DashboardIndex";
-import ChangelogPage from "../pages/changelog/ChangelogPage";
-import AnalyticsPage from "../pages/dashboard/AnalyticsPage";
-import ComponentPageLayout from "../pages/component/ComponentPageLayout";
-import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
-import AppsOutlinedIcon from '@mui/icons-material/AppsOutlined';
-import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import AlertPage from "../pages/component/AlertPage";
-import ButtonPage from "../pages/component/ButtonPage";
-import InstallationPage from "../pages/installation/InstallationPage";
-import DocumentationPage from "../pages/documentation/DocumentationPage";
-import DefaultPage from "../pages/dashboard/DefaultPage";
-import SaasPage from "../pages/dashboard/SaasPage";
+import UploadPage from "../pages/upload/UploadPage";
+import FiltersPageLayout from "../pages/filters/FiltersPageLayout";
+import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
+import PermPhoneMsgOutlinedIcon from '@mui/icons-material/PermPhoneMsgOutlined';
+import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
+import ScheduledPage from "../pages/filters/ScheduledPage";
+import AttemptPage from "../pages/filters/AttemptPage";
+import CanceledPage from "../pages/filters/CanceledPage";
+import BaseListPage from "../pages/baselist/BaseListPage";
+import SchedulerPage from "../pages/scheduler/SchedulerPage";
+import ManagementPage from "../pages/management/ManagementPage";
 
 const appRoutes: RouteType[] = [
 
@@ -25,99 +22,77 @@ const appRoutes: RouteType[] = [
     state: "home"
   },
   {
-    path: "/installation",
-    element: <InstallationPage />,
-    state: "installation",
+    path: "/upload",
+    element: <UploadPage />,
+    state: "upload",
     sidebarProps: {
-      displayText: "Installation",
+      displayText: "Upload",
       icon: <FileDownloadOutlinedIcon />
     }
   },
   {
-    path: "/dashboard",
-    element: <DashboardPageLayout />,
-    state: "dashboard",
+    path: "/filtros",
+    element: <FiltersPageLayout />,
+    state: "filters",
     sidebarProps: {
-      displayText: "Dashboard",
-      icon: <DashboardOutlinedIcon />
+      displayText: "Filtros",
+      icon: <FilterAltOutlinedIcon />
     },
     child: [
       {
-        index: true,
-        element: <DashboardIndex />,
-        state: "dashboard.index"
-      },
-      {
-        path: "/dashboard/default",
-        element: <DefaultPage />,
-        state: "dashboard.default",
+        path: "/filtros/agendado",
+        element: <ScheduledPage />,
+        state: "filters.scheduled",
         sidebarProps: {
-          displayText: "Default"
+          displayText: "Agendado"
         },
       },
       {
-        path: "/dashboard/analytics",
-        element: <AnalyticsPage />,
-        state: "dashboard.analytics",
+        path: "/filtros/tentativa",
+        element: <AttemptPage />,
+        state: "filters.attempt",
         sidebarProps: {
-          displayText: "Analytic"
-        }
+          displayText: "Tentativa"
+        },
       },
       {
-        path: "/dashboard/saas",
-        element: <SaasPage />,
-        state: "dashboard.saas",
+        path: "/filtros/cancelado",
+        element: <CanceledPage />,
+        state: "filters.canceled",
         sidebarProps: {
-          displayText: "Saas"
+          displayText: "Cancelado"
         }
       }
     ]
   },
   {
-    path: "/component",
-    element: <ComponentPageLayout />,
-    state: "component",
+    path: "/listabase",
+    element: <BaseListPage />,
+    state: "baselist",
     sidebarProps: {
-      displayText: "Components",
-      icon: <AppsOutlinedIcon />
-    },
-    child: [
-      {
-        path: "/component/alert",
-        element: <AlertPage />,
-        state: "component.alert",
-        sidebarProps: {
-          displayText: "Alert"
-        },
-      },
-      {
-        path: "/component/button",
-        element: <ButtonPage />,
-        state: "component.button",
-        sidebarProps: {
-          displayText: "Button"
-        }
-      }
-    ]
-  },
-  {
-    path: "/documentation",
-    element: <DocumentationPage />,
-    state: "documentation",
-    sidebarProps: {
-      displayText: "Documentation",
-      icon: <ArticleOutlinedIcon />
-    }
-  },
-  {
-    path: "/changelog",
-    element: <ChangelogPage />,
-    state: "changelog",
-    sidebarProps: {
-      displayText: "Changelog",
+      displayText: "Lista Base",
       icon: <FormatListBulletedOutlinedIcon />
     }
+  },
+  {
+    path: "/agendamento",
+    element: <SchedulerPage />,
+    state: "scheduler",
+    sidebarProps: {
+      displayText: "Agendamento",
+      icon: <PermPhoneMsgOutlinedIcon />
+    }
+  },
+  {
+    path: "/gerenciamento",
+    element: <ManagementPage />,
+    state: "management",
+    sidebarProps: {
+      displayText: "Gerenciamento",
+      icon: <ManageAccountsOutlinedIcon />
+    }
   }
+
 ];
 
 export default appRoutes;
