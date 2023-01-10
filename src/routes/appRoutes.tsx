@@ -12,7 +12,8 @@ import AttemptPage from "../pages/filters/AttemptPage";
 import CanceledPage from "../pages/filters/CanceledPage";
 import BaseListPage from "../pages/baselist/BaseListPage";
 import SchedulerPage from "../pages/scheduler/SchedulerPage";
-import ManagementPage from "../pages/management/ManagementPage";
+import ManagementPageLayout from "../pages/management/ManagementPageLayout";
+import CreateUserPage from "../pages/management/CreateUserPage";
 
 const appRoutes: RouteType[] = [
 
@@ -85,12 +86,22 @@ const appRoutes: RouteType[] = [
   },
   {
     path: "/gerenciamento",
-    element: <ManagementPage />,
+    element: <ManagementPageLayout />,
     state: "management",
     sidebarProps: {
       displayText: "Gerenciamento",
       icon: <ManageAccountsOutlinedIcon />
-    }
+    },
+    child: [
+      {
+        path: "/gerenciamento/novousuario",
+        element: <CreateUserPage />,
+        state: "management.newuser",
+        sidebarProps: {
+          displayText: "Novo Usuário"
+        },
+      }
+    ]
   }
 
 ];

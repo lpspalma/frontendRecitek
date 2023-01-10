@@ -4,6 +4,7 @@ import colorConfigs from "../../configs/colorConfigs";
 import sizeConfigs from "../../configs/sizeConfigs";
 import Sidebar from "../common/Sidebar";
 import Topbar from "../common/Topbar";
+import Copyright from "../common/Copyright";
 
 const MainLayout = () => {
   return (
@@ -30,6 +31,13 @@ const MainLayout = () => {
       >
         <Toolbar />
         <Outlet />
+        <Copyright
+          sx={{
+            mt: 5,
+            position: 'absolute',
+            bottom: 0,
+            right: 0
+          }} />
       </Box>
     </Box>
   );
