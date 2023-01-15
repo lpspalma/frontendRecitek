@@ -11,7 +11,15 @@ const colorConfigs = {
     bg: "#fff",
     color: "#000"
   },
-  mainBg: colors.grey["100"]
+  mainBg: colors.grey["100"],
+  status: {
+    color: "#eeeeee",
+    backgroundColor: {
+      scheduled: { bg: colors.green },
+      attempts: { bg: colors.yellow },
+      canceled: { bg: colors.red }
+    }
+  }
 };
 
 export default colorConfigs;
